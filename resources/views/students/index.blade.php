@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
         	<h1>Student list here</h1>
+            <a class="btn btn-primary" href="{{ route('students.add') }}">Add Student</a>
         	<table class="table">
         		<thead>
         			<tr>
@@ -13,18 +14,12 @@
         			</tr>
         		</thead>
         		<tbody>
+                    @foreach($students as $student)
         			<tr>
-        				<td>1.</td>
-        				<td>James Jumao-as</td>
-        			</tr>
-        			<tr>
-        				<td>2.</td>
-        				<td>Leo Cabanig</td>
-        			</tr>
-        			<tr>
-        				<td>3.</td>
-        				<td>Keinth Canete</td>
-        			</tr>
+        				<td>{{ $loop->iteration }}</td>
+        				<td>{{ $student->first_name }} {{ $student->middle_name }} {{ $student->last_name }}</td>
+        			 @endforeach
+                    </tr>
         		</tbody>
         	</table>
         </div>
